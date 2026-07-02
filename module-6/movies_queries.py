@@ -50,8 +50,9 @@ try:
     for studio in studios:
         print (f"Studio ID: {studio[0]}")
         print(f"Studio Name: {studio[1]}")
+        #added print() to add a space between results
         print()
-
+    #adds a space between queries
     print()
     #SECOND QUERY
     cursor = db.cursor()
@@ -62,7 +63,7 @@ try:
     cursor.execute("SELECT * FROM genre")
     genres = cursor.fetchall()    
 
-    #itersates through genre table
+    #iterates through genre table
     for genre in genres:
         print (f"Genre ID: {genre[0]}")
         print(f"Genre Name: {genre[1]}")
@@ -74,7 +75,7 @@ try:
     # Description
     print(f"--RUNTIME--")
 
-    # 2 hours is 120 minutes so 
+    # 2 hours is 120 minutes so runtime has to be less than 120
     cursor.execute("SELECT * FROM film WHERE film_runtime < 120")
     films = cursor.fetchall()
 
@@ -84,11 +85,12 @@ try:
         print()
 
     print()
+
     #Fourth query
     cursor = db.cursor()
     print(f"--Directors--")
 
-    #orders results by director
+    #orders results by director using ORDER BY
     cursor.execute ("SELECT * FROM film ORDER BY film_director")
     films = cursor.fetchall()
 
