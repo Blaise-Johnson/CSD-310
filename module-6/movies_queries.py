@@ -24,7 +24,6 @@ config = {
 }
 
 
-
 """ MySQL: mysql_test.py Connection test code """
 """ try/catch block for handling potential MySQL database errors """
 
@@ -32,6 +31,15 @@ try:
 
     # connect to the movies database
     db = mysql.connector.connect(**config)
+
+    cursor = db.cursor
+    ''' cursor.execute("SELECT * FROM Employees, Client, Asset, TransactionRecord,Appointment,Billing")
+    Employees = cursor.fetchall()
+    Client= cursor.fetchall()
+    Asset= cursor.fetchall()
+    TransactionRecord= cursor.fetchall()
+    Appointment= cursor.fetchall()
+    Billing= cursor.fetchall() '''
 
     # output the connection status
     print("\nDatabase user {} connected to MySQL on host {} with database {}"
