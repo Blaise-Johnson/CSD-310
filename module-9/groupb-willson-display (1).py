@@ -11,7 +11,7 @@ from mysql.connector import errorcode
 import dotenv
 from dotenv import dotenv_values
 # using our .env file
-secrets = dotenv_values("dotenv_values.env")
+secrets = dotenv_values(".env")
 """ database config object """
 
 config = {
@@ -22,7 +22,6 @@ config = {
     "database": secrets["DATABASE"],
     "raise_on_warnings": True
 }
-
 """ MySQL: mysql_test.py Connection test code """
 """ try/catch block for handling potential MySQL database errors """
 db = None
@@ -43,6 +42,7 @@ try:
         print(f"Role: {employee['Role']}")
         print(f"Phone: {employee['Phone']}")
         print(f"Email: {employee['Email']}")
+        print(f"Hire Date: {employee['HireDate']}")
         print( )
 
     print("------------------------------")
@@ -74,6 +74,7 @@ try:
         print(f"Asset ID: {asset['AssetID']}")
         print(f"Asset Type: {asset['AssetType']}")
         print(f"Value: {asset['Value']}")
+        print(f"Purchase Date: {asset['PurchaseDate']}")
         print(f"Client ID: {asset['ClientID']}")
         print()
 
@@ -113,7 +114,7 @@ try:
 
     #Billing - query and print every row from the billing table
     cursor = db.cursor(dictionary=True)
-    print(f"--Billing--")
+    print(f"--BILLING--")
     cursor.execute("SELECT * FROM billing")
     billing = cursor.fetchall()
 
@@ -121,6 +122,7 @@ try:
         print(f"Billing ID: {billing['BillingID']}")
         print(f"Billing Date: {billing['BillingDate']}")
         print(f"Amount: {billing['Amount']}")
+        print(f"Status: {billing['Status']}")
         print(f"Client ID: {billing['ClientID']}")
         print()
 
