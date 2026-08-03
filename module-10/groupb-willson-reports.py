@@ -10,7 +10,7 @@ import mysql.connector
 from mysql.connector import errorcode
 from dotenv import dotenv_values
 # using our .env file
-secrets = dotenv_values(".env")
+secrets = dotenv_values("dotenv_values.env.env")
 """ database config object """
 
 config = {
